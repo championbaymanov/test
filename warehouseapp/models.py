@@ -56,4 +56,14 @@ class Delivery(models.Model):
         return f'Delivery #{self.id}'
 
 
+class test(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    quantity = models.PositiveIntegerField()
+    destination = models.CharField(max_length=255)
+    destination_url = models.URLField(max_length=500)
+
+    def __str__(self):
+        return f'Delivery #{self.id}'
+
     
